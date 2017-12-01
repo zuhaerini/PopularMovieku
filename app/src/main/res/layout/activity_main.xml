@@ -8,8 +8,15 @@
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/rv_movie"/>
+
+    <ProgressBar
+        android:layout_gravity="center"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:id="@+id/loading_bar"
+        android:visibility="gone"/>
 
 
 
