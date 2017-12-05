@@ -10,7 +10,7 @@ import android.os.Parcelable;
 public class Movie implements Parcelable{
     private int id;
     private String title;
-    private float popularity;
+    private Double popularity;
     private String poster_path;
     private String backdropPath;
     private String overview;
@@ -18,24 +18,22 @@ public class Movie implements Parcelable{
     private Double voteCount;
     private Double voteAverage;
 
-    public Movie(String posterPath) {
-        this.poster_path = posterPath;
-    }
-
-    public Movie(int id, Double voteAverage, String title, String posterPath, String overview, String releaseDate) {
+    public Movie(int id, String title, Double popularity, String poster_path, String backdropPath, String overview, String releaseDate, Double voteCount, Double voteAverage) {
         this.id = id;
         this.title = title;
-        this.poster_path = posterPath;
+        this.popularity = popularity;
+        this.poster_path = poster_path;
         this.backdropPath = backdropPath;
         this.overview = overview;
         this.releaseDate = releaseDate;
+        this.voteCount = voteCount;
         this.voteAverage = voteAverage;
     }
 
     protected Movie(Parcel in) {
         id = in.readInt();
         title = in.readString();
-        popularity = in.readFloat();
+        popularity = in.readDouble();
         poster_path = in.readString();
         backdropPath = in.readString();
         overview = in.readString();
@@ -80,11 +78,11 @@ public class Movie implements Parcelable{
         this.title = title;
     }
 
-    public float getPopularity() {
+    public Double getPopularity() {
         return popularity;
     }
 
-    public void setPopularity(float popularity) {
+    public void setPopularity(Double popularity) {
         this.popularity = popularity;
     }
 
@@ -120,6 +118,14 @@ public class Movie implements Parcelable{
         this.releaseDate = releaseDate;
     }
 
+    public Double getVoteCount() {
+        return voteCount;
+    }
+
+    public void setVoteCount(Double voteCount) {
+        this.voteCount = voteCount;
+    }
+
     public Double getVoteAverage() {
         return voteAverage;
     }
@@ -137,7 +143,7 @@ public class Movie implements Parcelable{
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(id);
         parcel.writeString(title);
-        parcel.writeFloat(popularity);
+        parcel.writeDouble(popularity);
         parcel.writeString(poster_path);
         parcel.writeString(backdropPath);
         parcel.writeString(overview);

@@ -96,12 +96,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
                 for(int i = 0; i < results.length(); i++){
                     movieList.add(new Movie(
                             results.getJSONObject(i).getInt("id"),
-                            results.getJSONObject(i).getDouble("vote_average"),
                             results.getJSONObject(i).getString("title"),
+                            results.getJSONObject(i).getDouble("popularity"),
                             results.getJSONObject(i).getString("poster_path"),
+                            results.getJSONObject(i).getString("backdrop_path"),
                             results.getJSONObject(i).getString("overview"),
-                            results.getJSONObject(i).getString("release_date"))
-                    );
+                            results.getJSONObject(i).getString("release_date"),
+                            results.getJSONObject(i).getDouble("vote_count"),
+                            results.getJSONObject(i).getDouble("vote_average")));
+
                 }
                 Log.e("json_array", results.toString());
 
@@ -109,7 +112,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
                 loadingProgress.setVisibility(View.GONE);
 
                 adapter.notifyDataSetChanged();
-
 
             } catch (JSONException e) {
                 e.printStackTrace();
