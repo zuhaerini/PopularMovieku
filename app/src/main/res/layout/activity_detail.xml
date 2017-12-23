@@ -68,6 +68,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mark_button"
+                    android:onClick="save_movie"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
+
+                <Button
+                    android:id="@+id/btn_unmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unmark_button"
+                    android:onClick="delete_movie"
+                    android:visibility="gone"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
             </LinearLayout>
 
@@ -91,6 +101,7 @@
                 android:id="@+id/tv_detail_overview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             <TextView
@@ -110,11 +121,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Review"
+                android:layout_marginBottom="10dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_review"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
             </android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
